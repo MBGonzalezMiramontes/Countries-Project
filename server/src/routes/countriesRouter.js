@@ -1,15 +1,11 @@
 const { Router } = require("express");
 
+const {
+  getAllCountriesHandler,
+  getCountriesDetailsHandler,
+} = require("../handlers/countriesHandlers");
+
 const countriesRouter = Router();
-
-const getAllCountriesHandler = (req, res) => {
-  res.status(200).send("countries ok");
-};
-
-const getCountriesDetailsHandler = (req, res) => {
-    const { id } = req.params;
-    res.status(200).send(`pais ${id}`);
-  };
 
 countriesRouter.get("/countries", getAllCountriesHandler);
 // deberá Obtener un arreglo de objetos,
@@ -28,9 +24,7 @@ countriesRouter.get("/countries/:id", getCountriesDetailsHandler);
 //de las actividades turísticas
 //asociadas a este país.
 
-// countriesRouter.get("/countries/name?", (req, res) => {
-//  res.status(200).send("countries ok");
-//});
+//&&
 
 // Esta ruta debe obtener todos aquellos países que coinciden
 //con el nombre recibido por query. (No es necesario que sea una coincidencia exacta).

@@ -4,8 +4,8 @@ const activitiesRouter = require("./activitiesRouter.js");
 
 const router = Router();
 
-router.use( countriesRouter);
+router.use(countriesRouter);
 
-router.use( activitiesRouter);
+router.use(activitiesRouter);
 
 module.exports = router;
