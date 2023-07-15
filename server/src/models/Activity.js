@@ -8,7 +8,6 @@ module.exports = (sequelize) => {
     {
       id: {
         type: DataTypes.INTEGER,
-        autoIncrement: true,
         primaryKey: true,
         allowNull: false,
       },
@@ -26,7 +25,11 @@ module.exports = (sequelize) => {
       },
       duration: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        validate: {
+          min: 1,
+          max: 24,
+        },
+        allowNull:true,
       },
       season: {
         type: DataTypes.ENUM("Verano", "Otoño", "Invierno", "Primavera"),
