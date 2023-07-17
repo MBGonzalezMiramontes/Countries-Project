@@ -1,17 +1,19 @@
 const { Country, Activity } = require("../src/db");
 const { Op } = require("sequelize");
 
-// Este controlador se encarga de obtener todos los países con sus respectivas actividades.
+// Este controlador permite obtener países de la base de datos según un nombre proporcionado o todos los países si no se proporciona un nombre.
 const getCountriesController = async (name) => {
-  if (name) {
-    const countryByName = await Country.findAll({
-      where: { name: { [Op.iLike]: `%${name}%` } },
-      include: Activity,
-    });
-    return countryByName;
+  const condition = name ? { name: { [Op.iLike]: `%${name}%` } } : {};
+
+  const countries = await Country.findAll({
+    where: condition,
+    include: Activity,
+  });
+
+  if (countries.length === 0) {
+    throw new Error("No hay coincidencias.");
   }
-  const allCountries = await Country.findAll();
-  return allCountries;
+  return countries;
 };
 
 //Este controlador se encarga de obtener los detalles de un país específico identificado por su ID, junto con las actividades asociadas.
@@ -21,19 +23,6 @@ const getCountryByIdController = async (id) => {
     return countryDetail;
   }
 };
-
-//Este controlador se encarga de obtener todos los países que coinciden con un nombre, junto con las actividades asociadas.
-// Op.iLike se utiliza para realizar una búsqueda sin tener en cuenta mayúsculas y minúsculas.
-
-//const getCountriesByNameController = async (name) => {
-// if (name) {
-// const countries = await Country.findOne({
-// where: { name: { [Op.iLike]: `%${name}%` } },
-//include: Activity,
-//});
-//return countries;
-//}
-//};
 
 module.exports = {
   getCountriesController,

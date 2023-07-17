@@ -1,39 +1,36 @@
 const {
   createActivityController,
-  getAllActivitiesController,
+  getActivitiesController,
 } = require("../controllers/activitiesControllers");
 
 const createActivityHandler = async (req, res) => {
   try {
-    const { name, difficulty, duration, season, countries } = req.body;
+    const { name, difficulty, duration, season, description } = req.body;
     const response = await createActivityController(
       name,
       difficulty,
       duration,
-      season
+      season,
+      description
     );
-
-    if (response) {
-      if (countries && Array.isArray(countries)) {
-        await response.setCountries(countries);
-      }
-
-      return res.status(201).json({ success: true, response });
-    }
+    res.status(201).json(response);
   } catch (error) {
-    return res
-      .status(500)
-      .json({ success: false, message: "Error al crear actividad" });
+    return res.status(500).json({ error: error.message });
   }
 };
 
-const getAllActivitiesHandler = async (req, res) => {
+const getActivitiesHandler = async (req, res) => {
   try {
-    const activities = await getAllActivitiesController();
-    return res.status(200).json(activities);
+    const { name } = req.query;
+    if (name) {
+      const response = await getActivitiesController(name);
+      return res.status(200).json(response);
+    };
+    const response = await getActivitiesController();
+    res.status(200).json(response);
   } catch (error) {
-    return res.status(500).json({ error: 'Error Interno del Servidor' });
+    return res.status(500).json({error: error.message });
   }
 };
 
-module.exports = { createActivityHandler, getAllActivitiesHandler };
+module.exports = { createActivityHandler, getActivitiesHandler };
