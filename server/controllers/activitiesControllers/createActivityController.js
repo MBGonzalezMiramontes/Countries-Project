@@ -9,7 +9,6 @@ const createActivityController = async (
   description,
   countries
 ) => {
-  // Crea una nueva instancia de actividad turística con los valores proporcionados en los parámetros.
   const newActivity = await Activity.create({
     name,
     difficulty,
@@ -18,7 +17,6 @@ const createActivityController = async (
     description,
   });
 
-  // Busca los países que coinciden con los nombres proporcionados en el arreglo "countries".
   const associatedCountries = await Country.findAll({
     where: {
       name: {
@@ -29,7 +27,6 @@ const createActivityController = async (
     },
   });
 
-  // Obtiene la actividad recién creada con los países relacionados incluidos.
   await newActivity.setCountries(associatedCountries);
 
   const activity = await Activity.findByPk(newActivity.id, {
