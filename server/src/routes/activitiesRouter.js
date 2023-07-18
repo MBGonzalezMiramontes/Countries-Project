@@ -1,9 +1,12 @@
 const { Router } = require("express");
 
 const {
-  createActivityHandler,
   getActivitiesHandler,
-} = require("../../handlers/activitiesHandlers");
+} = require("../../handlers/activitiesHandlers/getActivitiesHandler.js");
+
+const {
+  createActivityHandler,
+} = require("../../handlers/activitiesHandlers/createActivitiesHandler.js");
 
 const activitiesRouter = Router();
 

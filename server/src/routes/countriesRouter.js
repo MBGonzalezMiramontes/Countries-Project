@@ -1,9 +1,12 @@
 const { Router } = require("express");
 
 const {
-  getCountriesHandler,
   getCountriesDetailsHandler,
-} = require("../../handlers/countriesHandlers");
+} = require("../../handlers/countriesHandlers/countriesDetailsHanlder");
+
+const {
+  getCountriesHandler,
+} = require("../../handlers/countriesHandlers/countriesHandler");
 
 const countriesRouter = Router();
 
