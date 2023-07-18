@@ -7,8 +7,8 @@ const {
 
 const countriesRouter = Router();
 
-countriesRouter.get('/countries', getCountriesHandler);
-countriesRouter.get('/countries/:id', getCountriesDetailsHandler);
-
+countriesRouter
+  .get("/countries", getCountriesHandler)
+  .get("/countries/:id", getCountriesDetailsHandler);
 
 module.exports = countriesRouter;

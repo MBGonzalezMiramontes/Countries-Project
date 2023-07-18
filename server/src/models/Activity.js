@@ -14,12 +14,9 @@ module.exports = (sequelize) => {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-          isAlpha: true,
-          len: {
-            args: [3, 100],
-            msg: "Debe contener entre 3 y 100 caracteres alfabéticos.",
-          },
+        len: {
+          args: [3, 100],
+          msg: "Debe contener entre 3 y 100 caracteres.",
         },
       },
       difficulty: {

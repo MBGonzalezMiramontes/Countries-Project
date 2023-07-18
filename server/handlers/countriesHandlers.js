@@ -3,6 +3,10 @@ const {
   getCountryByIdController,
 } = require("../controllers/countriesControllers");
 
+//Handlers: desestructuran la data recibida por query, params o body.
+//ManejaN errores (con try y catch)
+//Utilizan los controllers y envía la respuesta al cliente.
+
 // Este handler permite obtener todos los países o filtrar los países por nombre.
 const getCountriesHandler = async (req, res) => {
   try {
@@ -14,7 +18,7 @@ const getCountriesHandler = async (req, res) => {
     const response = await getCountriesController();
     return res.status(200).json(response);
   } catch (error) {
-    return res.status(500).json({ error: error.message});
+    return res.status(500).json({ error: error.message });
   }
 };
 
@@ -28,7 +32,7 @@ const getCountriesDetailsHandler = async (req, res) => {
     }
     return res.status(404).json({ error: "País no encontrado" });
   } catch (error) {
-    return res.status(500).json({ error: "Error Interno del Servidor" });
+    return res.status(500).json({ error: error.message });
   }
 };
 

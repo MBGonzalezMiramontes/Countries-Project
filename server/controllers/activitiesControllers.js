@@ -1,6 +1,9 @@
 const { Activity, Country } = require("../src/db");
 const { Op } = require("sequelize");
 
+//Controllers: se encargan de la lógica y de interactuar con fuentes externas(api o db).
+// Acciones entre tablas relacionadas a través del modelo relacional que define nuestra base de datos.
+
 // Este controlador crea una nueva actividad turística, establece las relaciones con los países indicados y retorna la actividad con los países relacionados.
 const createActivityController = async (
   name,
@@ -18,53 +21,48 @@ const createActivityController = async (
     description,
   });
 
-  // Se recorre el arreglo countries para buscar los países correspondientes en la base de datos utilizando el nombre de cada país.
-  for (let i = 0; i < countries.length; i++) {
-    const findCountry = await Country.findAll({
-      where: { name: countries[i] },
-    });
-    //Para cada país encontrado, se establece la relación con la nueva actividad utilizando el método addCountries.
-    await newActivity.addCountries(findCountry);
-  }
-  // Se realiza una consulta adicional para obtener la actividad turística recién creada, incluyendo los nombres de los países relacionados.
-  const activity = await Activity.findAll({
-    include: {
-      model: Country,
-      attributes: ["name"],
-      through: {
-        attributes: [],
+  const associatedCountries = await Country.findAll({
+    where: {
+      name: {
+        [Op.or]: countries.map((country) => ({
+          [Op.iLike]: country,
+        })),
       },
     },
   });
+
+  await newActivity.setCountries(associatedCountries);
+
+  const activity = await Activity.findByPk(newActivity.id, {
+    include: {
+      model: Country,
+      attributes: ["name"],
+    },
+  });
+
   return activity;
 };
 
+// Este controlador busca actividades en la db según un nombre proporcionado.
 const getActivitiesController = async (name) => {
   //Si name tiene un valor, se realiza una búsqueda de coincidencias parciales en el campo name,
   //y si name no tiene un valor, se obtienen todas las actividades sin aplicar ninguna condición de búsqueda.
   const condition = name ? { name: { [Op.iLike]: `%${name}%` } } : {};
 
   const activities = await Activity.findAll({
+    order: [["name", "ASC"]],
     where: condition,
-    include: Country,
+    include: {
+      model: Country,
+      attributes: ["name"],
+    },
   });
 
   if (activities.length === 0) {
-    throw new Error("No hay coincidencias.");
+    throw new Error("No hay coincidencias con " + name);
   }
 
   return activities;
 };
-//{
-//   //Se incluye el modelo de Country en la consulta y se  especifica que no se incluyan atributos adicionales de la relación entre actividades y países
-//   // para obtener los nombres de los países relacionados.
-//   include: {
-//     model: Country,
-//     attributes: ["name"],
-//     through: {
-//       attributes: [],
-//     },
-//   },
-// });
 
 module.exports = { createActivityController, getActivitiesController };

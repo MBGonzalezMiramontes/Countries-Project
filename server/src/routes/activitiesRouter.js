@@ -7,7 +7,8 @@ const {
 
 const activitiesRouter = Router();
 
-activitiesRouter.post("/activities", createActivityHandler);
-activitiesRouter.get("/activities", getActivitiesHandler);
+activitiesRouter
+  .post("/activities", createActivityHandler)
+  .get("/activities", getActivitiesHandler);
 
 module.exports = activitiesRouter;
