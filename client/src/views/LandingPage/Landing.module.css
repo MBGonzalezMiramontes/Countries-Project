@@ -1,0 +1,35 @@
+.landingContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("https://img.freepik.com/free-vector/vintage-theme-drawing-world-map_52683-26577.jpg?w=740&t=st=1689728349~exp=1689728949~hmac=df77a1cc5871f1fb4837795eb173b772e923a4cb406c50c42963a4c8b6e79cc0");
+  background-size: cover;
+  background-position: center;
+}
+
+.landingContainer h1 {
+  color: #f2e9d8;
+  font-size: 6rem;
+  margin-bottom: 20px;
+}
+
+.landingContainer button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a9d4d9;
+  color: #394159;
+  font-size: 1.5rem;
+  padding: 8px 16px;
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.minContainer {
+  background-color: #394159;
+  margin: 20px;
+  padding: 20px;
+}

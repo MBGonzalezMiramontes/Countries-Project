@@ -1,0 +1,15 @@
+.navContainer {
+  background-color: #394159;
+  padding: 10px 0;
+}
+
+.linkContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.linkContainer a {
+  color: #F2E9D8;
+  text-decoration: none;
+  margin-right: 10px;
+}

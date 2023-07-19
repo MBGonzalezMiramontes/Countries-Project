@@ -1,0 +1,9 @@
+.cardsMainContainer{
+    text-align: center;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
