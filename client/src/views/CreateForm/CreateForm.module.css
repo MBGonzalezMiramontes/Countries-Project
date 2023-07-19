@@ -1,11 +1,55 @@
 .createFormMainContainer {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
- 
+  padding: 2rem;
+  background-color: #f2e9d8;
+  min-height: 100vh;
+  
 }
 
-.inputContainer{
-  margin: 1rem;
+.inputContainer {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 1rem;
+  width: 8rem;
+  text-align: right;
+  color: #394159;
+}
+
+.input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+.descriptionInput {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.error {
+  color: red;
+  margin-top: 0.5rem;
+}
+
+.submitButton {
+  padding: 0.5rem 1rem;
+  background-color: #A9D4D9;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.submitButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }

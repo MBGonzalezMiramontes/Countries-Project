@@ -12,4 +12,10 @@
   color: #F2E9D8;
   text-decoration: none;
   margin-right: 10px;
+  padding: 5px 10px;
+}
+
+.linkContainer a:hover {
+  background-color: #F2E9D8;
+  color: #394159;
 }
