@@ -1,18 +1,19 @@
-import React from "react";
-import style from "./Card.module.css";
+import style from "./card.module.css";
+import { Link } from "react-router-dom";
 
-const Card = (props) => {
+const Card = ({ country }) => {
+  const { id, name, flagImage, continent } = country;
+  console.log(country);
   return (
-    <div className={style.cardContainer}>
-      {console.log(props)}
-      <div className={style.titleContainer}>
-        <h5>{props.name}</h5>
-        <div className={style.infoContainer}>
-          <p>Img: {props.img}</p>
-          <p>Continent:{props.continent} </p>
+    <Link to={`/home/${id}`} className={style.link}>
+      <div className={style.cardContainer}>
+        <img src={flagImage} alt="Flag" />
+        <div className={style.content}>
+          <h2>{name}</h2>
+          <p>{continent}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

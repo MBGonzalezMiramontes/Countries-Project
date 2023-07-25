@@ -1,16 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import { store } from "./redux/store/store.jsx";
-import { Provider } from "react-redux"; // provee a la app del estado que se crea dentro del store
+import "./index.css";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./Redux/store.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <Provider store={store}> 
+  <Provider store={store}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
   </Provider>
 );
-
-//la app tiene disponible a través de la store las actions (no al estado)

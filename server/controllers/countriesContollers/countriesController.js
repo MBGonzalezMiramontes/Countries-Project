@@ -20,6 +20,21 @@ const getCountriesController = async (name) => {
   return countries;
 };
 
+const getAllCountryNames = async () => {
+  try {
+    const countries = await Country.findAll({
+      attributes: ["name"],
+    });
+
+    const countryNames = countries.map((country) => country.name);
+    return countryNames;
+  } catch (error) {
+    console.error("Error al obtener los nombres de los países:", error);
+    throw error;
+  }
+};
+
 module.exports = {
   getCountriesController,
+  getAllCountryNames,
 };

@@ -1,6 +1,76 @@
+/* card.module.css */
+
+/* Paleta de colores */
+:root {
+  --primary-color: #f2e9d8; /* Color de fondo principal */
+  --secondary-color: #394159; /* Color de texto secundario */
+}
+
 .cardContainer {
-  background-color: #f2e9d8;
-  width: 10rem;
-  height: 10rem;
+  background-color: var(--primary-color);
+  width: 100%; /* Ajusta el ancho al 100% del contenedor padre */
+  max-width: 12rem; /* Tamaño máximo de la card */
   margin: 10px;
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.014);
+  transition: transform 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.cardContainer:hover {
+  transform: scale(1.05);
+}
+
+img {
+  width: 70%;
+  height: auto;
+  object-fit: cover;
+  margin-top: 10px;
+}
+
+.content {
+  text-align: center;
+  padding: 1rem;
+}
+
+h2 {
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+p {
+  color: var(--secondary-color);
+  font-size: 1rem;
+  margin: 0;
+}
+
+
+@media (max-width: 768px) {
+  .cardContainer {
+    max-width: 100%; /* En pantallas más pequeñas, el ancho de la card ocupa todo el espacio disponible */
+  }
+
+  img {
+    width: 100%; /* La imagen ocupa todo el ancho de la card en pantallas más pequeñas */
+  }
+
+  h2 {
+    font-size: 1rem; /* Tamaño del título ajustado para pantallas más pequeñas */
+  }
+
+  p {
+    font-size: 0.9rem; /* Tamaño del texto ajustado para pantallas más pequeñas */
+  }
+}
+
+.link {
+  text-decoration: none; /* Quita la decoración de enlace predeterminada */
+  color: #1c638b; /* Cambia el color del texto del enlace si es necesario */
+  font-weight: bold; /* Aplica negrita al texto del enlace si es necesario */
+  margin-top: 10px; /* Ajusta el margen superior del enlace */
 }

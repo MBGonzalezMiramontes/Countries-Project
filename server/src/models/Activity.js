@@ -31,22 +31,17 @@ module.exports = (sequelize) => {
         type: DataTypes.TIME,
         allowNull: true,
         validate: {
-          //Valida si una cadena de texto tiene el formato HH:MM,
-          //las horas en formato de 96 horas (de 00 a 96) y los minutos en formato de dos dígitos (de 00 a 59).
-          is: /^([0-8]?[0-9]|9[0-6]):([0-5][0-9])$/,
+          is: /^([0-1]?[0-9]|2[0-3]):([0-5][0-9])$/,
           setTime(time) {
             const minValue = "00:05";
-            const maxValue = "96:00";
-            if (time < minValue || time > maxValue) {
-              throw new Error(
-                `La duración debe ser entre ${minValue} minutos y ${maxValue} horas.`
-              );
+            if (time < minValue) {
+              throw new Error(`La duración mínima debe ser de ${minValue} hs.`);
             }
           },
         },
       },
       season: {
-        type: DataTypes.ENUM("Verano", "Otoño", "Invierno", "Primavera"),
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
       },
       description: {

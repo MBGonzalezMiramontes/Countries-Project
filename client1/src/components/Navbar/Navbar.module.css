@@ -1,8 +1,6 @@
-.navbarContainer {
+.navContainer {
   background-color: #394159;
-  width: 100vw;
-  height: 80px;
-  margin: 0 auto;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,8 +14,7 @@
 .link {
   color: #f2e9d8;
   text-decoration: none;
-  margin-left: 30px;
-  margin-right: 10px;
+  margin-right: 20px;
   padding: 8px 16px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -34,32 +31,6 @@
 }
 
 .searchBarContainer {
-  margin-right: 70px;
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-.searchInput {
-  font-size: 14px;
-  padding: 4px 8px;
-  margin-right: 5px;
-  border: none;
-}
-
-.searchButton {
-  background-color: #a9d4d9;
-  color: #394159;
-  padding: 4px 8px;
-  font-size: 14px;
-  border: none;
-  cursor: pointer;
-}
-
-.searchButton:hover {
-  background-color: #a9d4d9;
-}
-
-.searchButton:active {
-  background-color: #1c638b;
 }

@@ -14,27 +14,19 @@ export default (data) => {
   }
 
   if (data.duration) {
-    const durationRegex = /^([0-8]?[0-9]|9[0-6]):([0-5][0-9])$/;
+    const durationRegex = /^([0-1]?[0-9]|2[0-3]):([0-5][0-9])$/;
     if (!durationRegex.test(data.duration)) {
-      errors.invalidDuration =
-        "Formato de duración inválido. Debe ser HH:MM, entre el rango 00:05 y 96:00";
+      errors.invalidDuration = "Formato de duración inválido.";
     } else {
       const minDuration = "00:05";
-      const maxDuration = "96:00";
-      if (data.duration < minDuration || data.duration > maxDuration) {
-        errors.invalidDurationRange = `La duración debe estar entre ${minDuration} minutos y ${maxDuration} horas.`;
+      if (data.duration < minDuration) {
+        errors.invalidDurationRange = `La duración mínima debe ser ${minDuration} hs.`;
       }
     }
   }
 
   if (!data.season) {
     errors.noSeason = "Temporada requerida.";
-  } else {
-    const validSeasons = ["Verano", "Otoño", "Invierno", "Primavera"];
-    if (!validSeasons.includes(data.season)) {
-      errors.invalidSeason =
-        "Temporada inválida. Debe ser Verano, Otoño, Invierno o Primavera.";
-    }
   }
 
   return errors;
