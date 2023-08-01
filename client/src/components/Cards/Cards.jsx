@@ -7,7 +7,7 @@ const Cards = ({ allCountries }) => {
   return (
     <div className={style.cardsContainer}>
       {countriesList?.map((country) => (
-        <Card country={country} />
+        <Card key={country.id} country={country} />
       ))}
     </div>
   );

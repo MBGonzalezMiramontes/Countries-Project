@@ -1,15 +1,8 @@
-/* card.module.css */
-
-/* Paleta de colores */
-:root {
-  --primary-color: #f2e9d8; /* Color de fondo principal */
-  --secondary-color: #394159; /* Color de texto secundario */
-}
-
 .cardContainer {
-  background-color: var(--primary-color);
-  width: 100%; /* Ajusta el ancho al 100% del contenedor padre */
-  max-width: 12rem; /* Tamaño máximo de la card */
+  border-radius: 5px;
+  background-color: #F2E9D8;
+  width: 100%;
+  max-width: 12rem;
   margin: 10px;
   display: flex;
   cursor: pointer;
@@ -17,7 +10,7 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.014);
-  transition: transform 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
   text-decoration: none;
 }
 
@@ -26,10 +19,11 @@
 }
 
 img {
+  border-radius: 5px;
   width: 70%;
   height: auto;
   object-fit: cover;
-  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .content {
@@ -38,39 +32,58 @@ img {
 }
 
 h2 {
-  color: var(--secondary-color);
-  font-size: 1.2rem;
+  color:#394159;
+  font-size: 1.6rem;
   margin: 0.5rem 0;
 }
 
 p {
-  color: var(--secondary-color);
-  font-size: 1rem;
+  color: #394159;
+  font-size: 0.9rem;
+  font-weight: 100;
   margin: 0;
 }
 
-
 @media (max-width: 768px) {
   .cardContainer {
-    max-width: 100%; /* En pantallas más pequeñas, el ancho de la card ocupa todo el espacio disponible */
+    max-width: 100%;
+    padding: 10px; /* Agregamos un espacio interno para que el contenido no esté pegado al borde de la card */
   }
 
   img {
-    width: 100%; /* La imagen ocupa todo el ancho de la card en pantallas más pequeñas */
-  }
-
-  h2 {
-    font-size: 1rem; /* Tamaño del título ajustado para pantallas más pequeñas */
-  }
-
-  p {
-    font-size: 0.9rem; /* Tamaño del texto ajustado para pantallas más pequeñas */
+    width: 100%;
+    max-width: 200px; /* Limitamos el tamaño máximo de la imagen en dispositivos móviles */
   }
 }
 
 .link {
-  text-decoration: none; /* Quita la decoración de enlace predeterminada */
-  color: #1c638b; /* Cambia el color del texto del enlace si es necesario */
-  font-weight: bold; /* Aplica negrita al texto del enlace si es necesario */
-  margin-top: 10px; /* Ajusta el margen superior del enlace */
+  text-decoration: none;
+  color: var(--link-color);
+  font-weight: bold;
+  margin-top: 10px;
+  /* Nueva transición para el cambio de color */
+  transition: color 0.3s ease-in-out;
+  position: relative; /* Agregamos posición relativa para el subrayado */
+}
+
+/* Agregamos el subrayado en hover */
+.link:hover {
+  color: var(--link-hover-color);
+}
+
+/* Estilo para el subrayado */
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* Distancia del subrayado al texto */
+  width: 100%;
+  height: 2px;
+  background-color: var(--link-hover-color); /* Color del subrayado */
+  opacity: 0; /* Por defecto el subrayado no es visible */
+  transition: opacity 0.3s ease-in-out; /* Transición para mostrar el subrayado */
+}
+
+.link:hover::after {
+  opacity: 1; /* Mostramos el subrayado cuando el enlace está en hover */
 }

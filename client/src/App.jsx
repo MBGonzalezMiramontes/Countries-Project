@@ -3,7 +3,7 @@ import Home from "./views/home/home";
 import Detail from "./views/detail/detail";
 import Form from "./views/form/form";
 import NavBar from "./components/navbar/navbar";
-import Landing from "./views/Landing/Landing";
+import Landing from "./views/landing/landing";
 //import "./App.css";
 
 function App() {
@@ -11,7 +11,6 @@ function App() {
 
   return (
     <div className="App">
-      {pathname !== "/" && <NavBar />}
       <Routes>
         <Route exact path="/" element={<Landing />} />
         <Route exact path="/home" element={<Home />} />

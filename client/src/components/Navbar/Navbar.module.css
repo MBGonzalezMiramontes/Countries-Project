@@ -1,11 +1,18 @@
+/* styles.css (o el nombre de tu archivo CSS principal) */
+
+/* Establecer una altura mínima para la barra de navegación para que se muestre incluso cuando no hay contenido */
 .navbarContainer {
+  position: fixed; /* Fijar el navbar en la parte superior de la página */
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: #394159;
-  width: 100vw;
   height: 80px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 20px;
+  z-index: 999; /* Asegurarse de que el navbar esté en la parte superior del apilamiento */
 }
 
 .linkContainer {
@@ -16,50 +23,44 @@
 .link {
   color: #f2e9d8;
   text-decoration: none;
-  margin-left: 30px;
-  margin-right: 10px;
-  padding: 8px 16px;
+  margin-left: 20px;
+  padding: 8px 12px;
+  border-radius: 4px; /* Agregamos bordes redondeados */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Cambiamos el color de fondo y el color del texto cuando el enlace está en hover */
 .link:hover {
   background-color: #f2e9d8;
   color: #394159;
 }
 
+/* Estilo para el enlace activo */
 .link.active {
   background-color: #f2e9d8;
   color: #394159;
   font-weight: bold;
 }
 
+/* Estilo para la barra de búsqueda */
 .searchBarContainer {
-  margin-right: 70px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  margin-left: auto;
 }
 
-.searchInput {
-  font-size: 14px;
-  padding: 4px 8px;
-  margin-right: 5px;
-  border: none;
+/* Estilo para el campo de búsqueda */
+.searchBar {
+  padding: 8px 12px;
+  border: 1px solid #f2e9d8;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #f2e9d8;
+  outline: none;
 }
 
-.searchButton {
-  background-color: #a9d4d9;
+/* Cambiamos el color de fondo y el color del texto cuando el campo de búsqueda está enfocado */
+.searchBar:focus {
+  background-color: #f2e9d8;
   color: #394159;
-  padding: 4px 8px;
-  font-size: 14px;
-  border: none;
-  cursor: pointer;
-}
-
-.searchButton:hover {
-  background-color: #a9d4d9;
-}
-
-.searchButton:active {
-  background-color: #1c638b;
 }

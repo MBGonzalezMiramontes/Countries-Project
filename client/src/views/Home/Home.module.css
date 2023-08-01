@@ -1,10 +1,36 @@
 .homeContainer {
   background-color: #99b8bf;
-  width: 100vw;
-  height: 100vh;
-  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.pagination {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  padding-bottom: 20px;
 }
+
+.pagination button {
+  border-radius: 5px;
+  border: none;
+  background-color: #394159;
+  color: #f2e9d8;
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: #a9d4d9;
+  color: #f2e9d8;
+}
+
+.pagination .active {
+  background-color: #a9d4d9;
+  color: #f2e9d8;
+}
+
+

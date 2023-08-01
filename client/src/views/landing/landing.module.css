@@ -1,0 +1,44 @@
+.landingContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://img.freepik.com/free-vector/vintage-theme-drawing-world-map_52683-26577.jpg?w=740&t=st=1689728349~exp=1689728949~hmac=df77a1cc5871f1fb4837795eb173b772e923a4cb406c50c42963a4c8b6e79cc0");
+  background-position: center;
+}
+
+.landingContainer h1 {
+  color: #f2e9d8;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Agregamos un sombreado al texto */
+}
+
+.landingContainer button {
+  border-radius: 5px;
+  display: inline-block;
+  background-color: #a9d4d9;
+  color: #394159;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.landingContainer button:hover {
+  background-color: #86bfc7;
+}
+
+.minContainer {
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #394159;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
