@@ -18,8 +18,6 @@ Node: 12.18.3 o superior.
 NPM: 6.14.16 o superior.
 Puedes verificar las versiones instaladas con los siguientes comandos:
 
-bash
-Copy code
 node -v
 npm -v
 Estás autorizado, bajo tu propia responsabilidad, a actualizar las dependencias a versiones más recientes si lo deseas. Ten en cuenta que versiones más recientes pueden tener configuraciones diferentes a las que hemos estado utilizando durante el bootcamp.
@@ -30,13 +28,11 @@ En este proyecto, la API de Countries se ejecutará localmente en tu computadora
 
 Para ejecutar esta API localmente desde tu computadora, debes abrir tu terminal, navegar hasta la carpeta server y ejecutar el siguiente comando:
 
-bash
-Copy code
+
 npm start
 Verás un mensaje similar al siguiente en tu terminal:
 
-less
-Copy code
+
 [0] 
 [0] > server@1.0.0 server
 [0] > nodemon index.js
@@ -63,8 +59,6 @@ Clona el repositorio en tu computadora para comenzar a trabajar. Este repositori
 
 En la carpeta api, debes crear un archivo llamado: .env con la siguiente estructura:
 
-env
-Copy code
 DB_USER=usuariodepostgres
 DB_PASSWORD=passwordDePostgres
 DB_HOST=localhost
